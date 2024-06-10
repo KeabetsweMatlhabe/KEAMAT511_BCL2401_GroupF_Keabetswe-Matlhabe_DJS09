@@ -1,24 +1,13 @@
 {
   "name": "project",
   "devDependencies": {
-    "css-loader": "^7.1.2",
-    "file-loader": "^6.2.0",
-    "style-loader": "^4.0.0",
-    "ts-loader": "*",
-    "typescript": "*",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
     "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.0"
+    "webpack-cli": "^5.1.4"
   },
   "scripts": {
     "build": "webpack",
-    "watch": "webpack -w",
-    "start": "webpack serve --open"
-  },
-  "version": "1.0.0",
-  "description": "Are you ready to get stuck into some Typescript? For this challenge, you are required to code along with the lecturer from this lesson:  Couch Surfing Website",
-  "main": "webpack.config.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "watch": "webpack -w"
+  }
 }
