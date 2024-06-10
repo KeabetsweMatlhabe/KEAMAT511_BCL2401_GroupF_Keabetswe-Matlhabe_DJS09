@@ -1,12 +1,16 @@
+const path = require('path');
+
 module.exports = {
   "output": {
-    "filename": "[name].pack.js"
+    "filename": "[name].pack.js",
+    path: path.resolve(__dirname, 'dist'),
   },
   "entry": {
     "index": "./index"
   },
   "resolve": {
     "extensions": [
+      '.tsx', 
       ".ts",
       ".js",
       ".json"
