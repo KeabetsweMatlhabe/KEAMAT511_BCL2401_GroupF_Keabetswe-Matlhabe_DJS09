@@ -1,31 +1,117 @@
+const propertyContainer = document.querySelector(".properties");
 
-const reviewTotalDisplay = document.querySelector('#reviews')
+import { showReviewTotal, populateUser } from "./utils";
+let isOpen: boolean;
 
-const reviews = [
-    {
-        name: 'Sheia',
-        stars: 5,
-        loyaltyUser: true,
-        date: '01-04-2021'
+const reviews: {
+  name: string;
+  stars: number;
+  loyaltyUser: boolean;
+  date: string;
+}[] = [
+  {
+    name: "Sheia",
+    stars: 5,
+    loyaltyUser: true,
+    date: "01-04-2021",
+  },
+  {
+    name: "Andrzej",
+    stars: 3,
+    loyaltyUser: false,
+    date: "28-03-2021",
+  },
+  {
+    name: "Omar",
+    stars: 4,
+    loyaltyUser: true,
+    date: "27-03-2021",
+  },
+];
+
+//User
+const you: {
+  firstName: string;
+  lastName: string;
+  isReturning: boolean;
+  age: number;
+  stayedAt: string[];
+} = {
+  firstName: "Koketso",
+  lastName: "Brown",
+  isReturning: true,
+  age: 35,
+  stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
+};
+
+//array of properties
+const properties: {
+  image: string;
+  title: string;
+  price: number;
+  location: {
+    firstLine: string;
+    city: string;
+    code: number;
+    country: string;
+  };
+  contact: string;
+  isAvailable: boolean;
+}[] = [
+  {
+    image: "./images/colombia.jpg",
+    title: "Colombian Shack",
+    price: 45,
+    location: {
+      firstLine: "flat-37",
+      city: "Bogota",
+      code: 45632,
+      country: "Colombia",
     },
-    {
-        name: 'Andrzej',
-        stars: 3,
-        loyaltyUser: false,
-        date: '28-03-2021'
+    contact: "marywinkle@gmail.com",
+    isAvailable: true,
+  },
+  {
+    image: "./images/poland.jpg",
+    title: "Polish Cottage",
+    price: 34,
+    location: {
+      firstLine: "no 23",
+      city: "Gdansk",
+      code: 347362,
+      country: "Poland",
     },
-    {
-        name: 'Omar',
-        stars: 4,
-        loyaltyUser: true,
-        date: '27-03-2021'
+    contact: "garydavis@gmail.com",
+    isAvailable: false,
+  },
+  {
+    image: "./images/london.jpg",
+    title: "London Flat",
+    price: 23,
+    location: {
+      firstLine: "flat 15",
+      city: "London",
+      code: 879416,
+      country: "United Kingdom",
     },
-]
+    contact: "andyluger@gmail.com",
+    isAvailable: true,
+  },
+];
 
+showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 
-function showReviewTotal (value : number, reviewer: string, isLoyalty : boolean) {
-    const iconDisplay = isLoyalty ? '⭐' : ''
-    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay
+populateUser(you.isReturning, you.firstName);
+
+//ADD properties
+
+for (let i = 0; i < properties.length; i++) {
+  const card = document.createElement("div");
+  card.classList.add("card");
+  card.innerHTML = properties[i].title;
+  const image = document.createElement("img");
+  image.setAttribute("src", properties[i].image);
+  card.appendChild(image);
+  propertyContainer.appendChild(card);
 }
 
-showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
