@@ -11,6 +11,8 @@ const footer = document.querySelector('.footer') as HTMLElement
 const reviewContainer = document.querySelector('.reviews') as HTMLElement
 const container = document.querySelector('.container') as HTMLElement
 const button = document.querySelector('button') as HTMLElement
+
+// import imgUrl1 from './'
  
 
 let isLoggedIn: boolean
@@ -49,7 +51,7 @@ const you = {
 // Array of Properties
 const properties : Property[] = [
     {
-        image: '../images/colombia-property.jpg',
+        image: 'images/colombia-property.jpg',
         title: 'Colombian Shack',
         price: 45,
         location: {
@@ -62,7 +64,7 @@ const properties : Property[] = [
         isAvailable: true  
     },
     {
-        image: '../../images/poland-property.jpg',
+        image: 'images/poland-property.jpg',
         title: 'Polish Cottage',
         price: 30,
         location: {
