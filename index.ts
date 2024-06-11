@@ -1,12 +1,17 @@
+// Code Tidy
+
 import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils'
 import { Permissions , LoyaltyUser } from './enums'
 import { Review, Property } from './interfaces'
 import MainProperty from './classes' 
-const propertyContainer = document.querySelector('.properties')
-const reviewContainer = document.querySelector('.reviews')
-const container = document.querySelector('.container')
-const button = document.querySelector('button')
-const footer = document.querySelector('.footer')
+
+const propertyContainer = document.querySelector('.properties') as HTMLElement
+const footer = document.querySelector('.footer') as HTMLElement
+
+const reviewContainer = document.querySelector('.reviews') as HTMLElement
+const container = document.querySelector('.container') as HTMLElement
+const button = document.querySelector('button') as HTMLElement
+ 
 
 let isLoggedIn: boolean
 
@@ -44,7 +49,7 @@ const you = {
 // Array of Properties
 const properties : Property[] = [
     {
-        image: 'images/colombia-property.jpg',
+        image: './images/colombia-property.jpg',
         title: 'Colombian Shack',
         price: 45,
         location: {
@@ -57,7 +62,7 @@ const properties : Property[] = [
         isAvailable: true  
     },
     {
-        image: 'images/poland-property.jpg',
+        image: './images/poland-property.jpg',
         title: 'Polish Cottage',
         price: 30,
         location: {
@@ -70,7 +75,7 @@ const properties : Property[] = [
         isAvailable: false 
     },
     {
-        image: 'images/london-property.jpg',
+        image: './images/london-property.jpg',
         title: 'London Flat',
         price: 25,
         location: {
@@ -83,7 +88,7 @@ const properties : Property[] = [
         isAvailable: true
     },
     {
-        image: 'public/images/malaysian-hotel.jpeg',
+        image: './public/images/malaysian-hotel.jpeg',
         title: 'Malia Hotel',
         price: 35,
         location: {
@@ -102,7 +107,7 @@ showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
 populateUser(you.isReturning, you.firstName)
 
-// Add the properties
+// properties
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div')
     card.classList.add('card')
@@ -136,7 +141,7 @@ footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + current
 
 
 let yourMainProperty = new MainProperty(
-    'images/italian-property.jpg', 
+    './images/italian-property.jpg', 
     'Italian House',
     [{
         name: 'Olive',
@@ -145,7 +150,7 @@ let yourMainProperty = new MainProperty(
         date: '12-04-2021'
     }] )
 
-const mainImageContainer = document.querySelector('.main-image')
+const mainImageContainer = document.querySelector('.main-image') as HTMLElement
 const image = document.createElement('img')
 image.setAttribute('src', yourMainProperty.src)
 mainImageContainer.appendChild(image)
