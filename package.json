@@ -7,7 +7,11 @@
     "webpack-cli": "^5.1.4"
   },
   "scripts": {
+    "serve": "webpack-dev-server",
     "build": "webpack",
     "watch": "webpack -w"
+  },
+  "dependencies": {
+    "webpack-dev-server": "^5.0.4"
   }
 }
